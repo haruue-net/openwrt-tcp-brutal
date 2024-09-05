@@ -8,7 +8,7 @@
    [OpenWrt 官方指南](https://openwrt.org/docs/guide-developer/toolchain/install-buildsystem)
    来了解要装哪些包：
 
--  准备适用于你当前使用的 OpenWrt 版本的 SDK。
+2. 准备适用于你当前使用的 OpenWrt 版本的 SDK。
    + 如果你的 OpenWrt 是从官网下载的稳定版，
      通常可以直接在下载页面找到 `openwrt-sdk-<版本号>-*.tar.xz` 的文件，
      版本号必须和你正在使用的完全相同。
@@ -32,21 +32,21 @@
    cd openwrt-sdk-23.05.3-x86-64_gcc-12.3.0_musl.Linux-x86_64
    ```
 
--  配置 feeds， 由于 tcp-brutal 只依赖内核， 通过 SDK 编译不需要任何别的 feeds。
+2. 配置 feeds， 由于 tcp-brutal 只依赖内核， 通过 SDK 编译不需要任何别的 feeds。
 
    ```bash
    echo "src-git tcp_brutal https://github.com/haruue-net/openwrt-tcp-brutal;master" > feeds.conf.default
    ./scripts/feeds update -a && ./scripts/feeds install -a
    ```
 
--  进行编译
+3. 进行编译
 
    ```bash
    make defconfig
    make package/feeds/tcp_brutal/tcp-brutal/compile
    ```
 
--  寻找编译好的 ipk 文件， 通常是下面这种位置，
+4. 寻找编译好的 ipk 文件， 通常是下面这种位置，
    路径会随架构、 内核版本以及 tcp-brutal 自身的版本发生改变。
 
    ```

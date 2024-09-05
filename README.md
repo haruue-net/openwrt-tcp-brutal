@@ -35,7 +35,7 @@
 2. 配置 feeds， 由于 tcp-brutal 只依赖内核， 通过 SDK 编译不需要任何别的 feeds。
 
    ```bash
-   echo "src-git tcp_brutal https://github.com/haruue-net/openwrt-tcp-brutal;master" > feeds.conf.default
+   echo "src-git tcp_brutal https://github.com/haruue-net/openwrt-tcp-brutal.git;master" > feeds.conf.default
    ./scripts/feeds update -a && ./scripts/feeds install -a
    ```
 
@@ -63,12 +63,12 @@
 
 假设你已经知道怎么编译 OpenWrt。
 
-在配置 feeds 时， 往 feeds.conf.default 中追加下面这行， 而不是替换整个文件。
+在配置 feeds 时， 往 `feeds.conf.default` 中追加下面这行， 而不是替换整个文件的内容。
 
 ```
-src-git tcp_brutal https://github.com/haruue-net/openwrt-tcp-brutal;master
+src-git tcp_brutal https://github.com/haruue-net/openwrt-tcp-brutal.git;master
 ```
 
-在执行 `menu config` 时， 依次进入「Kernel modules」-「Network Support」，
+在执行 `make menuconfig` 时， 依次进入「Kernel modules」-「Network Support」，
 选中 `kmod-brutal` 并改成 `<*>`。
 
